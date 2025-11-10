@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verification Result</title>
+    <link rel="stylesheet" href="{% static 'verification/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Verification Result</h1>
+
+        <p><strong>Document Type:</strong> {{ document.document_type }}</p>
+        <p>
+            <strong>Status:</strong> 
+            <span class="status-{{ document.verification_status }}">
+                {{ document.verification_status }}
+            </span>
+        </p>
+
+        <h3>Extracted Texts</h3>
+        {% if results %}
+            {% for r in results %}
+                <div class="doc-block">
+                    <h4>{{ r.filename }}</h4>
+                    <pre>{{ r.text }}</pre>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>No OCR results found.</p>
+        {% endif %}
+
+        {% if errors %}
+            <h3>Detected Errors</h3>
+            <ul>
+                {% for error in errors %}
+                    <li>{{ error.error_description }}</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No errors detected ✅</p>
+        {% endif %}
+
+        <a href="{% url 'verification:upload' %}" class="btn">Upload Another Document</a>
+    </div>
+</body>
+</html>

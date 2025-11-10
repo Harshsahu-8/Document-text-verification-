@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document Verification</title>
+    <link rel="stylesheet" href="{% static 'verification/styles.css' %}">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Document Text Extraction</h1>
+
+        <!-- Upload form -->
+        <form action="{% url 'verification:upload' %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+
+            <label for="document_type">Document Type:</label>
+            <select name="document_type" id="document_type" required>
+                <option value="Aadhar">Aadhar</option>
+                <option value="PAN">PAN</option>
+                <option value="Passport">Passport</option>
+                <option value="Other">Other</option>
+            </select>
+
+            <label for="image">Upload Document:</label>
+            <input type="file" id="image" name="image" accept="image/*" multiple required>
+            <button type="submit">Extract</button>
+        </form>
+
+        <!-- Error message -->
+        {% if error %}
+        <div class="alert alert-danger">{{ error }}</div>
+        {% endif %}
+
+        <!-- Success message -->
+        {% if success %}
+        <div class="alert alert-success">{{ success }}</div>
+        {% endif %}
+    </div>
+</body>
+
+</html>

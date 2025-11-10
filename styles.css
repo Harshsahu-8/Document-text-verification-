@@ -1,0 +1,196 @@
+/* ================================
+   Global Styles
+================================= */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(180deg, #1f023e, #b4c8ec);
+    margin: 0;
+    padding: 0;
+    color: #000;
+    transition: all 0.3s ease;
+}
+
+/* Container */
+.container {
+    max-width: 700px;
+    margin: 50px auto;
+    background: rgba(161, 224, 231, 0.95);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 6px 16px rgba(201, 17, 17, 0.2);
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(228, 39, 39, 0.25);
+}
+
+/* Headings */
+h1, h3 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+/* Paragraphs & Text */
+p, label, select, input, pre, li {
+    font-size: 16px;
+    line-height: 1.6;
+    text-align: left;
+    color: #000;
+}
+
+/* Form Styles */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    text-align: left;
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #34495e;
+}
+
+select, input[type="file"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 15px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+select:focus, input[type="file"]:focus {
+    border-color: #3498db;
+    outline: none;
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+    transform: scale(1.02);
+}
+
+/* Buttons */
+button, .btn {
+    display: inline-block;
+    padding: 12px 20px;
+    background: #f3ce81;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+button:hover, .btn:hover {
+    background: #2980b9;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+/* Alerts */
+.alert {
+    padding: 12px;
+    border-radius: 8px;
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+.alert-danger {
+    background: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+.alert-danger::before {
+    content: "⚠ ";
+}
+
+.alert-success {
+    background: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.alert-success::before {
+    content: "✅ ";
+}
+
+/* Result Page */
+pre {
+    background: #f4f6f7;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: left;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    color: #000 !important;
+}
+
+/* OCR result blocks */
+.doc-block {
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+    padding: 15px;
+    border-radius: 8px;
+    background: #fff;
+    text-align: left;
+}
+
+.doc-block h4 {
+    margin-top: 0;
+    color: #2c3e50;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 5px;
+}
+
+/* Errors */
+ul {
+    text-align: left;
+    margin: 10px 0;
+    padding-left: 20px;
+}
+
+ul li {
+    background: #f8f9fa;
+    padding: 8px 12px;
+    margin-bottom: 6px;
+    border-radius: 6px;
+    border-left: 4px solid #3498db;
+    transition: all 0.3s ease;
+}
+
+ul li:hover {
+    background: #e1f0ff;
+    border-left-color: #2980b9;
+}
+
+/* Status colors */
+p strong {
+    font-weight: bold;
+}
+
+.status-verified {
+    color: #27ae60;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.status-pending {
+    color: #f39c12;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.status-error {
+    color: #e74c3c;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
